@@ -1,0 +1,10 @@
+universe = vanilla
+Executable = condor_vbfnlo.sh
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Output = vbfnlo_$(Cluster)_$(Process).stdout
+Error = vbfnlo_$(Cluster)_$(Process).stderr
+Log = vbfnlo_$(Cluster)_$(Process).log
+x509userproxy = $ENV(X509_USER_PROXY)
+arguments = $(Cluster) $(Process) $(ClusterId) $(ProcId)
+Queue 10
